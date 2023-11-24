@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-extras@7.1.0/dist/aframe-extras.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="rock1" src="./Rock1.glb"></a-asset-item>
+
+        <img
+          id="groundTexture"
+          src="https://cdn.aframe.io/a-painter/images/floor.jpg"
+        />
+
+        <img
+          id="skyTexture"
+          src="https://cdn.aframe.io/a-painter/images/sky.jpg"
+        />
+
+        <a-mixin
+          id="voxel"
+          geometry="primitive: box; height: 0.5; width: 0.5; depth: 0.5"
+          snap="offset: 0.25 0.25 0.25; snap: 0.5 0.5 0.5"
+        ></a-mixin>
+
+        <a-mixin
+          id="voxel1"
+          geometry="primitive: box; height: 1; width: 1; depth: 1"
+          material="shader: standard"
+          gltf-model="#rock1"
+          snap="offset: 0.5 0 0.5; snap: 1 1 1"
+        ></a-mixin>
+      </a-assets>
+
+      <a-plane
+        id="ground"
+        cursor-listener
+        src="#groundTexture"
+        width="5"
+        height="5"
+        rotation="-90 0 0"
+      ></a-plane>
+
+      <!-- 이동경로 저장 -->
+      <a-entity
+        id="positionMap"
+        position="0 0 0"
+        width="5"
+        height="5"
+      ></a-entity>
+
+      <a-sky
+        id="background"
+        src="#skyTexture"
+        theta-length="90"
+        radius="30"
+      ></a-sky>
+
+      <a-entity id="player">
+        <!-- Hands -->
+        <a-entity
+          id="teleHand"
+          hand-controls="hand: left"
+          blink-controls="collisionEntities: [mixin='voxel1'], #ground"
+        ></a-entity>
+        <a-entity
+          id="blockHand"
+          hand-controls="hand: right"
+          laser-controls
+          raycaster="near: 1"
+          intersection-spawn="event: click; mixin: voxel1"
+        ></a-entity>
+
+        <!-- Camera -->
+        <a-camera>
+          <!-- Uncomment the line below to place blocks on desktop or mobile -->
+          <a-cursor
+            cursor="rayOrigin: mouse;"
+            geometry="primitive: ring; radiusInner: 0; radiusOuter: 0"
+            intersection-spawn="event: click; mixin: voxel1"
+          ></a-cursor>
+        </a-camera>
+      </a-entity>
+    </a-scene>
+    <script src="./style.js"></script>
+  </body>
+</html>
