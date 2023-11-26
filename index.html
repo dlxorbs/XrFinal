@@ -67,27 +67,13 @@
       ></a-sky>
 
       <a-entity id="player">
-        <!-- Hands -->
-        <a-entity
-          id="teleHand"
-          hand-controls="hand: left"
-          blink-controls="collisionEntities: [mixin='voxel1'], #ground"
-        ></a-entity>
-        <a-entity
-          id="blockHand"
-          hand-controls="hand: right"
-          laser-controls
-          raycaster="near: 1"
-          intersection-spawn="event: click; mixin: voxel1"
-        ></a-entity>
-
         <!-- Camera -->
         <a-camera>
           <!-- Uncomment the line below to place blocks on desktop or mobile -->
           <a-cursor
             cursor="rayOrigin: mouse;"
             geometry="primitive: ring; radiusInner: 0; radiusOuter: 0"
-            intersection-spawn="event: click; mixin: voxel1"
+            intersection-spawn=" mixin: voxel1"
           ></a-cursor>
         </a-camera>
       </a-entity>
