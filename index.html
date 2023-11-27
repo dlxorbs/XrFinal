@@ -13,19 +13,20 @@
   </head>
 
   <body>
+    <button>물체 변경</button>
     <a-scene>
       <a-assets>
         <a-asset-item id="rock1" src="./Rock1.glb"></a-asset-item>
+        <a-asset-item id="Coral1" src="./model/Coral01.glb"></a-asset-item>
+        <a-asset-item id="glass1" src="./model/glass.glb"></a-asset-item>
+        <a-asset-item id="ground1" src="./model/ground.glb"></a-asset-item>
 
         <img
           id="groundTexture"
           src="https://cdn.aframe.io/a-painter/images/floor.jpg"
         />
 
-        <img
-          id="skyTexture"
-          src="https://cdn.aframe.io/a-painter/images/sky.jpg"
-        />
+        <img id="skyTexture" src="./model/underwater.avif" />
 
         <a-mixin
           id="voxel"
@@ -52,29 +53,31 @@
         cursor-lister
       ></a-plane>
 
+      <a-entity id="glass" position="0 0 0" gltf-model="#glass1"></a-entity>
+      <a-entity
+        id="ground"
+        cursor-listener
+        position="0 0 0"
+        gltf-model="#ground1"
+      ></a-entity>
       <!-- 이동경로 저장 -->
       <a-entity
         id="positionMap"
-        position="0 0 0"
+        position="0 0.1 0"
         width="5"
         height="5"
       ></a-entity>
 
-      <a-sky
-        id="background"
-        src="#skyTexture"
-        theta-length="90"
-        radius="30"
-      ></a-sky>
+      <a-sky id="background" src="#skyTexture"></a-sky>
 
-      <a-entity id="player">
+      <a-entity id="player" position=" 0 2 -4 ">
         <!-- Camera -->
-        <a-camera>
+        <a-camera rotation="-27.044 180 0">
           <!-- Uncomment the line below to place blocks on desktop or mobile -->
           <a-cursor
             cursor="rayOrigin: mouse;"
             geometry="primitive: ring; radiusInner: 0; radiusOuter: 0"
-            intersection-spawn=" mixin: voxel1"
+            intersection-spawn="mixin: voxel"
           ></a-cursor>
         </a-camera>
       </a-entity>

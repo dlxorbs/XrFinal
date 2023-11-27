@@ -9,104 +9,123 @@
 
 // 여기서의 data는 컴포넌트의 이름 뒤에 붙는 기본적인 것들을 정의한다.
 let positionMap = document.querySelector("#positionMap");
-// AFRAME.registerComponent("intersection-spawn", {
-//   schema: {
-//     default: "",
-//     parse: AFRAME.utils.styleParser.parse, // 문자열 xyz의 값을 순서대로 확인
-//   },
+AFRAME.registerComponent("intersection-spawn", {
+  schema: {
+    default: "",
+    parse: AFRAME.utils.styleParser.parse, // 문자열 xyz의 값을 순서대로 확인
+  },
 
-//   init: function () {
-//     var data = this.data;
-//     console.log(data);
-//     var el = this.el;
+  init: function () {
+    var data = this.data;
+    console.log(data);
+    var el = this.el;
 
-//     el.addEventListener("click", (evt) => {
-//       // 엘리먼트를 생성할 수 있도록 제작
-//       var spawnEl = document.createElement("a-entity");
+    const btn = document.querySelector("button");
+    const cursor = document.querySelector("a-cursor");
 
-//       //제작된 엘리먼트에서 position의 값을 상호작용한 포인트에 생성
-//       spawnEl.setAttribute("position", evt.detail.intersection.point);
+    el.addEventListener("click", (evt) => {
+      // 엘리먼트를 생성할 수 있도록 제작
+      var spawnEl = document.createElement("a-entity");
 
-//       // Set components and properties.
-//       Object.keys(data).forEach((name) => {
-//         if (name === "event") {
-//           return;
-//         }
-//         AFRAME.utils.entity.setComponentProperty(spawnEl, name, data[name]);
-//       });
+      //제작된 엘리먼트에서 position의 값을 상호작용한 포인트에 생성
+      spawnEl.setAttribute("position", evt.detail.intersection.point);
 
-//       // Append to scene.
-//       positionMap.appendChild(spawnEl);
-//     });
-//   },
-// });
+      // Set components and properties.
+      Object.keys(data).forEach((name) => {
+        if (name === "event") {
+          return;
+        }
 
-// //data는 여기서 schema로 지정한 값들을 설정할 수 있다.
-// AFRAME.registerComponent("snap", {
-//   dependencies: ["position"],
+        //객체 값을 변경할 수 있도록 해야함.....
+        btn.addEventListener("click", (e) => {
+          console.log("a");
+          data.mixin = "voxel1";
+        });
 
-//   schema: {
-//     offset: { type: "vec3" },
-//     snap: { type: "vec3" },
-//   },
+        console.log(data[name]);
+        AFRAME.utils.entity.setComponentProperty(spawnEl, name, data[name]);
+      });
+      console.log(Object);
+      // Append to scene.
+      positionMap.appendChild(spawnEl);
+    });
+  },
+});
 
-//   init: function () {
-//     this.originalPos = this.el.getAttribute("position");
-//   },
+//data는 여기서 schema로 지정한 값들을 설정할 수 있다.
+AFRAME.registerComponent("snap", {
+  dependencies: ["position"],
 
-//   update: function () {
-//     var data = this.data;
-//     console.log(data);
-//     var pos = AFRAME.utils.clone(this.originalPos);
-//     pos.x = Math.round(pos.x / data.snap.x) * data.snap.x + data.offset.x;
-//     pos.y = Math.round(pos.y / data.snap.y) * data.snap.y + data.offset.y;
-//     pos.z = Math.round(pos.z / data.snap.z) * data.snap.z + data.offset.z;
+  schema: {
+    offset: { type: "vec3" },
+    snap: { type: "vec3" },
+  },
 
-//     this.el.setAttribute("position", pos);
-//   },
-// });
+  init: function () {
+    this.originalPos = this.el.getAttribute("position");
+  },
+
+  update: function () {
+    var data = this.data;
+    console.log(data);
+    var pos = AFRAME.utils.clone(this.originalPos);
+    pos.x = Math.round(pos.x / data.snap.x) * data.snap.x + data.offset.x;
+    pos.y = Math.round(pos.y / data.snap.y) * data.snap.y + data.offset.y;
+    pos.z = Math.round(pos.z / data.snap.z) * data.snap.z + data.offset.z;
+
+    this.el.setAttribute("position", pos);
+  },
+});
 
 let intersection;
 let clickPoint;
 
-//커서 리스너 통해서 박스 생성
-AFRAME.registerComponent("cursor-listener", {
-  init: function () {
-    this.el.addEventListener("raycaster-intersected", (evt) => {
-      this.raycaster = evt.detail.el;
+// //커서 리스너 통해서 박스 생성
+// AFRAME.registerComponent("cursor-listener", {
+//   init: function () {
+//     this.el.addEventListener("raycaster-intersected", (evt) => {
+//       this.raycaster = evt.detail.el;
 
-      this.el.addEventListener("click", (evt) => {
-        const clickPoint = document.createElement(`a-box`);
-        var data = this.data;
-        console.log(data);
-        console.log(evt.detail.intersection);
-        evt.detail.intersection.point.x = Math.round(
-          evt.detail.intersection.point.x
-        );
-        evt.detail.intersection.point.y = 0.5;
-        evt.detail.intersection.point.z = Math.round(
-          evt.detail.intersection.point.z
-        );
+//       this.el.addEventListener("click", (evt) => {
+//         const clickPoint = document.createElement(`a-entity`);
 
-        console.log(this.el);
+//         clickPoint.setAttribute("gltf-model", "#rock1");
 
-        clickPoint.setAttribute("position", evt.detail.intersection.point);
+//         const btn = document.querySelector("button");
+//         btn.addEventListener("click", (e) => {
+//           clickPoint.setAttribute("gltf-model", "#Coral1");
+//         });
 
-        positionMap.appendChild(clickPoint);
-      });
-    });
+//         var data = this.data;
+//         console.log(data);
+//         console.log(evt.detail.intersection);
+//         evt.detail.intersection.point.x = Math.round(
+//           evt.detail.intersection.point.x
+//         );
+//         evt.detail.intersection.point.y = 0;
+//         evt.detail.intersection.point.z = Math.round(
+//           evt.detail.intersection.point.z
+//         );
 
-    this.el.addEventListener("raycaster-intersected-cleared", (evt) => {
-      this.raycaster = null;
-    });
-  },
-  tick: function () {
-    if (!this.raycaster) {
-      return;
-    }
-    intersection = this.raycaster.components.raycaster.getIntersection(this.el);
-    if (!intersection) {
-      return;
-    }
-  },
-});
+//         console.log(this.el);
+
+//         clickPoint.setAttribute("position", evt.detail.intersection.point);
+
+//         positionMap.appendChild(clickPoint);
+//       });
+//     });
+
+//     this.el.addEventListener("raycaster-intersected-cleared", (evt) => {
+//       this.raycaster = null;
+//     });
+//   },
+//   tick: function () {
+//     if (!this.raycaster) {
+//       return;
+//     }
+//     intersection = this.raycaster.components.raycaster.getIntersection(this.el);
+//     if (!intersection) {
+//       return;
+//     }
+//   },
+// });
