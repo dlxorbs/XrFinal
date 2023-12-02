@@ -1,4 +1,108 @@
-button {
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 300;
+  font-style: normal;
+  color: #333333;
+}
+
+/* 스크롤바 디자인 */
+
+::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 99px;
+  background-color: #dddddd;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #333333;
+  border-radius: 99px;
+}
+
+* {
+  font-family: "Pretendard-Regular";
+  color: #333333;
+}
+
+/* 사이드바 디자인 */
+.btn-container {
   position: absolute;
   z-index: 99;
+  height: 100%;
+  right: 0;
+  background-color: #ffffff60;
+  width: 16%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* 탭바 디자인 */
+
+.tabbtn-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  height: 48px;
+}
+
+.tab {
+  display: flex;
+  width: calc(100% / 4);
+  height: 48px;
+  justify-content: center;
+
+  align-items: center;
+  border-right: 1px solid #dddddd;
+}
+
+.tab:nth-child(4) {
+  border-right: 0px;
+}
+
+.tab > input {
+  display: none;
+}
+
+.tab-text {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+input[type="radio"]:checked + .tab-text {
+  font-weight: 800;
+  background-color: #dddddd50;
+}
+
+/* 물체 선택창 디자인 */
+.object-container {
+  width: calc(100% - 24px);
+  height: calc(100% - 48px);
+  background-color: #dddddd50;
+  display: grid;
+  flex-wrap: wrap;
+  padding: 12px;
+  gap: 12px 12px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(auto-fill, minmax(110px, auto));
+
+  overflow-y: scroll;
+}
+
+.object-container > div {
+  width: 100%;
+  height: 110px;
+  background-color: #ffffff;
+}
+
+.hidden {
+  display: none;
 }

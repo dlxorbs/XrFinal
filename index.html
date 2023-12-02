@@ -13,7 +13,67 @@
   </head>
 
   <body>
-    <button>물체 변경</button>
+    <div class="btn-container">
+    
+      <div class="tabbtn-container">
+      <label class="tab" > 
+        <input type="radio" name="selecttype" value="rock" checked>
+        <div class="tab-text">바위</div>
+      </label>
+      <label class="tab" > 
+        <input type="radio" name="selecttype" value="coral">
+        <div class="tab-text">산호</div>
+      </label>
+      <label class="tab" >
+        <input type="radio" name="selecttype" value="wood">
+        <div class="tab-text">나무</div>
+      </label>  
+      <label class="tab" >
+        <input type="radio" name="selecttype" value="seaweed">
+        <div class="tab-text">해초</div>
+      </label>
+      </div>
+     
+
+      <div class="rock object-container">
+
+        <div id="rock1btn"></div>
+        <div id="rock1btn"></div>
+        <div id="rock1btn"></div>
+        <div id="rock1btn"></div>
+        <div id="rock1btn"></div>
+        
+        <div id="rock1btn"></div>
+        <div id="rock1btn"></div>
+        <div id="rock1btn"></div>
+        <div id="rock1btn"></div>
+        <div id="rock1btn"></div>
+        <div id="rock1btn"></div>
+        <div id="rock1btn"></div>
+        <div id="rock1btn"></div>
+        <div id="rock1btn"></div>
+        <div id="rock1btn"></div>
+        <div id="rock1btn"></div>
+        <div id="rock1btn"></div>
+        <div id="rock1btn"></div>
+        <div id="rock1btn"></div>
+        <div id="rock1btn"></div>
+        <div id="rock1btn"></div>
+        
+
+      </div>
+      <div class="coral object-container hidden">
+        
+      </div>
+      <div class="wood object-container hidden">
+        
+      </div>
+      <div class="seaweed object-container hidden">
+        
+      </div>
+      </div>
+    </div>
+
     <a-scene>
       <a-assets>
         <a-asset-item id="rock1" src="./Rock1.glb"></a-asset-item>
