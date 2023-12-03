@@ -100,7 +100,16 @@ input[type="radio"]:checked + .tab-text {
 .object-container > div {
   width: 100%;
   height: 110px;
-  background-color: #ffffff;
+  background-color: transparent;
+  background-position: center;
+  background-size: cover;
+  transition: 0.3s;
+  border-radius: 8px;
+}
+
+.object-container > div:hover {
+  background-color: #ffffff60;
+  transition: 0.3s;
 }
 
 .hidden {
