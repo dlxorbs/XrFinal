@@ -17,19 +17,19 @@
     
       <div class="tabbtn-container">
       <label class="tab" > 
-        <input type="radio" name="selecttype" value="rock" checked>
+        <input type="radio" name="selecttype" value="rock" checked onchange="getType()">
         <div class="tab-text">바위</div>
       </label>
       <label class="tab" > 
-        <input type="radio" name="selecttype" value="coral">
+        <input type="radio" name="selecttype" value="coral" onchange="getType()">
         <div class="tab-text">산호</div>
       </label>
       <label class="tab" >
-        <input type="radio" name="selecttype" value="wood">
+        <input type="radio" name="selecttype" value="wood" onchange="getType()">
         <div class="tab-text">나무</div>
       </label>  
       <label class="tab" >
-        <input type="radio" name="selecttype" value="seaweed">
+        <input type="radio" name="selecttype" value="seaweed" onchange="getType()">
         <div class="tab-text">해초</div>
       </label>
       </div>
@@ -133,7 +133,8 @@
       </a-entity>
     </a-scene>
     <script src="./image.js"></script>
-    <script src="./sidebar.js"></script>
+
+    <script src="sidebar.js" ></script>
     <script src="./style.js"></script>
 
   

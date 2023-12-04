@@ -18,8 +18,8 @@ AFRAME.registerComponent("cursor-listener", {
         clickPoint.setAttribute("gltf-model", targetModel);
         clickPoint.setAttribute("rotation", `0 ${roty} 0`);
         var data = this.data;
-        console.log(data);
-        console.log(evt.detail.intersection);
+        // console.log(data);
+        // console.log(evt.detail.intersection);
         evt.detail.intersection.point.x = Math.round(
           evt.detail.intersection.point.x
         );
@@ -28,15 +28,15 @@ AFRAME.registerComponent("cursor-listener", {
           evt.detail.intersection.point.z
         );
 
-        console.log(this.el);
+        // console.log(this.el);
 
         clickPoint.setAttribute("position", evt.detail.intersection.point);
 
         positionMap.appendChild(clickPoint);
 
-        console.log(this.raycaster);
+        // console.log(this.raycaster);
 
-        console.log(clickPoint);
+        // console.log(clickPoint);
       });
 
       const btn = document.querySelector("button");
