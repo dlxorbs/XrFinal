@@ -33,40 +33,70 @@
         <div class="tab-text">해초</div>
       </label>
       </div>
-     
-
+      <div class="object-wrapper">
+             
+      <div class="text"> 꾸밀 물체를 선택하고 <br/> 어항에 놓아주세요 </div>
       <div class="rock object-container">
 
-        <div class="rockbtn" id="rock01btn" ></div>
-        <div class="rockbtn" id="rock02btn" ></div>
-        <div class="rockbtn" id="rock03btn" ></div>
-        <div class="rockbtn" id="rock04btn" ></div>
-        <div class="rockbtn" id="rock05btn" ></div>
+        <div class="rockbtn" id="rock1btn" ></div>
+        <div class="rockbtn" id="rock2btn" ></div>
+        <div class="rockbtn" id="rock3btn" ></div>
+        <div class="rockbtn" id="rock4btn" ></div>
+        <div class="rockbtn" id="rock5btn" ></div>
         
-        <div class="rockbtn" id="rock06btn" ></div>
-        <div class="rockbtn" id="rock07btn" ></div>
-        <div class="rockbtn" id="rock08btn" ></div>
-        <div class="rockbtn" id="rock09btn" ></div>
+        <div class="rockbtn" id="rock6btn" ></div>
+        <div class="rockbtn" id="rock7btn" ></div>
+        <div class="rockbtn" id="rock8btn" ></div>
+        <div class="rockbtn" id="rock9btn" ></div>
         <div class="rockbtn" id="rock10btn" ></div>
         
         
 
       </div>
       <div class="coral object-container hidden">
-        
+        <div class="coralbtn" id="coral1btn" ></div>
+        <div class="coralbtn" id="coral2btn" ></div>
+        <div class="coralbtn" id="coral3btn" ></div>
+        <div class="coralbtn" id="coral4btn" ></div>
+        <div class="coralbtn" id="coral5btn" ></div>
+        <div class="coralbtn" id="coral6btn" ></div>
+        <div class="coralbtn" id="coral7btn" ></div>
+        <div class="coralbtn" id="coral8btn" ></div>
+        <div class="coralbtn" id="coral9btn" ></div>
+        <div class="coralbtn" id="coral10btn" ></div>
       </div>
       <div class="wood object-container hidden">
-        
+        <div class="woodbtn" id="wood1btn" ></div>
+        <div class="woodbtn" id="wood2btn" ></div>
+        <div class="woodbtn" id="wood3btn" ></div>
+        <div class="woodbtn" id="wood4btn" ></div>
+        <div class="woodbtn" id="wood5btn" ></div>
       </div>
       <div class="seaweed object-container hidden">
-        
+        <div class="seaweedbtn" id="seaweed1btn" ></div>
+        <div class="seaweedbtn" id="seaweed2btn" ></div>
+        <div class="seaweedbtn" id="seaweed3btn" ></div>
+        <div class="seaweedbtn" id="seaweed4btn" ></div>
+        <div class="seaweedbtn" id="seaweed5btn" ></div>
+        <div class="seaweedbtn" id="seaweed6btn" ></div>
+        <div class="seaweedbtn" id="seaweed7btn" ></div>
+      </div>
       </div>
       </div>
     </div>
 
-    <a-scene>
+    <a-scene fog="type: exponential; near:0.5; far:700; color: #99E8FA">
+      <!-- <a-scene> -->
       <a-assets>
-        <a-asset-item id="rock1" src="./Rock1.glb"></a-asset-item>
+        <a-asset-item id="rock1" src="./model/rock/rock1.glb"></a-asset-item>
+        <a-asset-item id="rock2" src="./model/rock/rock2.glb"></a-asset-item>
+        <a-asset-item id="rock3" src="./model/rock/rock3.glb"></a-asset-item>
+        <a-asset-item id="rock4" src="./model/rock/rock4.glb"></a-asset-item>
+        <a-asset-item id="rock5" src="./model/rock/rock5.glb"></a-asset-item>
+        <a-asset-item id="rock6" src="./model/rock/rock6.glb"></a-asset-item>
+        <a-asset-item id="rock7" src="./model/rock/rock7.glb"></a-asset-item>
+
+
         <a-asset-item id="Coral1" src="./model/Coral01.glb"></a-asset-item>
         <a-asset-item id="glass1" src="./model/glass.glb"></a-asset-item>
         <a-asset-item id="ground1" src="./model/ground.glb"></a-asset-item>
@@ -78,18 +108,14 @@
 
         <img id="skyTexture" src="./model/underwater.png" />
 
-        <a-mixin
-          id="voxel"
-          geometry="primitive: box; height: 0.5; width: 0.5; depth: 0.5"
-          snap="offset: 0.25 0.25 0.25; snap: 0.5 0.5 0.5"
-        ></a-mixin>
+  
 
         <a-mixin
           id="voxel1"
           geometry="primitive: box; height: 1; width: 1; depth: 1"
           material="shader: standard"
           gltf-model="#rock1"
-          snap="offset: 0.5 0 0.5; snap: 1 1 1"
+          snap="offset: 0.5 0 0.5; snap: 1 1 1;"
         ></a-mixin>
       </a-assets>
 
@@ -127,7 +153,6 @@
           <a-cursor
             cursor="rayOrigin: mouse;"
             geometry="primitive: ring; radiusInner: 0; radiusOuter: 0"
-            intersection-spawn="mixin: voxel"
           ></a-cursor>
         </a-camera>
       </a-entity>

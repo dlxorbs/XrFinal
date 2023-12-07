@@ -31,36 +31,36 @@
   z-index: 99;
   height: 100%;
   right: 0;
-  background-color: #ffffff60;
-  width: 16%;
-
   display: flex;
-  flex-direction: column;
 }
 
 /* 탭바 디자인 */
 
 .tabbtn-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
 
-  width: 100%;
-  height: 48px;
+  align-items: center;
+  flex-direction: column;
+  width: 64px;
 }
 
 .tab {
   display: flex;
-  width: calc(100% / 4);
   height: 48px;
   justify-content: center;
-
+  width: 100%;
   align-items: center;
-  border-right: 1px solid #dddddd;
+  background-color: #ffffff40;
+}
+
+.tab:nth-child(1) {
+  border-top-left-radius: 8px;
+  overflow: hidden;
 }
 
 .tab:nth-child(4) {
-  border-right: 0px;
+  border-bottom-left-radius: 8px;
+  overflow: hidden;
 }
 
 .tab > input {
@@ -79,14 +79,28 @@
 
 input[type="radio"]:checked + .tab-text {
   font-weight: 800;
-  background-color: #dddddd50;
+  background-color: #dddddd30;
+}
+/* 중간텍스트 */
+.text {
+  font-size: 20px;
+  padding: 24px 12px;
+  text-align: center;
+  line-height: 160%;
+  font-weight: 600;
+  background-color: #dddddd30;
 }
 
 /* 물체 선택창 디자인 */
+
+.object-wrapper {
+  background-color: #ffffff40;
+  width: 100%;
+}
 .object-container {
   width: calc(100% - 24px);
   height: calc(100% - 48px);
-  background-color: #dddddd50;
+  background-color: #dddddd30;
   display: grid;
   flex-wrap: wrap;
   padding: 12px;
@@ -98,7 +112,7 @@ input[type="radio"]:checked + .tab-text {
 }
 
 .object-container > div {
-  width: 100%;
+  width: 110px;
   height: 110px;
   background-color: transparent;
   background-position: center;

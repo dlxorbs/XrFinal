@@ -7,6 +7,48 @@ let intersection;
 let targetModel = "#rock1";
 let roty = 0;
 
+let rockname = document.getElementsByClassName("rockbtn");
+
+const rbtn = document.querySelectorAll(".rockbtn");
+console.log(rbtn);
+
+rbtn.forEach((element, index) => {
+  element.addEventListener("click", (e) => {
+    console.log(index);
+
+    targetModel = `#rock${index + 1}`;
+  });
+});
+
+const cbtn = document.querySelectorAll(".coralbtn");
+
+cbtn.forEach((element, index) => {
+  element.addEventListener("click", (e) => {
+    console.log(index);
+
+    targetModel = `#coral${index + 1}`;
+  });
+});
+
+const wbtn = document.querySelectorAll(".woodbtn");
+wbtn.forEach((element, index) => {
+  element.addEventListener("click", (e) => {
+    console.log(index);
+
+    targetModel = `#wood${index + 1}`;
+  });
+});
+
+const sbtn = document.querySelectorAll(".seaweedbtn");
+
+sbtn.forEach((element, index) => {
+  element.addEventListener("click", (e) => {
+    console.log(index);
+
+    targetModel = `#seaweed${index + 1}`;
+  });
+});
+
 //커서 리스너 통해서 박스 생성
 AFRAME.registerComponent("cursor-listener", {
   init: function () {
@@ -16,7 +58,9 @@ AFRAME.registerComponent("cursor-listener", {
       this.el.addEventListener("click", (evt) => {
         const clickPoint = document.createElement(`a-entity`);
         clickPoint.setAttribute("gltf-model", targetModel);
-        clickPoint.setAttribute("rotation", `0 ${roty} 0`);
+
+        // clickPoint.setAttribute("rotation", `0 ${roty} 0`);
+
         var data = this.data;
         // console.log(data);
         // console.log(evt.detail.intersection);
@@ -31,17 +75,13 @@ AFRAME.registerComponent("cursor-listener", {
         // console.log(this.el);
 
         clickPoint.setAttribute("position", evt.detail.intersection.point);
-
+        clickPoint.setAttribute("rotating-this", "");
+        clickPoint.setAttribute("rotation", "0 0 0");
         positionMap.appendChild(clickPoint);
 
         // console.log(this.raycaster);
 
         // console.log(clickPoint);
-      });
-
-      const btn = document.querySelector("button");
-      btn.addEventListener("click", (e) => {
-        targetModel = "#Coral1";
       });
     });
 
@@ -59,3 +99,13 @@ AFRAME.registerComponent("cursor-listener", {
     }
   },
 });
+
+// AFRAME.registerComponent("rotating-this", {
+//   tick: function () {
+//     this.el.addEventListener("click", function () {
+//       roty = 90 + roty;
+//     });
+//     console.log(this);
+//     this.el.setAttribute("rotation", `0 ${roty} 0`);
+//   },
+// });
