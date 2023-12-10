@@ -18,7 +18,6 @@ function getType(e) {
     woodcontainer.classList.add("hidden");
     coralcontainer.classList.add("hidden");
     seaweedcontainer.classList.add("hidden");
-    console.log("a");
   } else if (value === "coral") {
     rockcontainer.classList.add("hidden");
     woodcontainer.classList.add("hidden");

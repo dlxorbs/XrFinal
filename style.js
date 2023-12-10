@@ -68,14 +68,17 @@ AFRAME.registerComponent("cursor-listener", {
           evt.detail.intersection.point.x
         );
         evt.detail.intersection.point.y = 0;
-        evt.detail.intersection.point.z = Math.round(
-          evt.detail.intersection.point.z
-        );
+        if (evt.detail.intersection.point.z <= -2) {
+          evt.detail.intersection.point.z = -2;
+        } else {
+          evt.detail.intersection.point.z = Math.round(
+            evt.detail.intersection.point.z
+          );
+        }
 
         // console.log(this.el);
-
+        clickPoint.setAttribute("animation-mixer", "clip:default");
         clickPoint.setAttribute("position", evt.detail.intersection.point);
-        clickPoint.setAttribute("rotating-this", "");
         clickPoint.setAttribute("rotation", "0 0 0");
         positionMap.appendChild(clickPoint);
 
