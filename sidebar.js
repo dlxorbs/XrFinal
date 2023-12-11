@@ -4,6 +4,7 @@ const coralcontainer = document.querySelector(".coral");
 const seaweedcontainer = document.querySelector(".seaweed");
 const valueRadio = document.getElementsByName("selecttype");
 
+
 function getType(e) {
   let value = "rock"; // Move the initialization outside the loop
 

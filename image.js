@@ -27,3 +27,4 @@ seaweedbtn.forEach((element, index) => {
   const number = index + 1;
   element.style.backgroundImage = `url(./Img/seaweed/seaweed${number}.png)`;
 });
+

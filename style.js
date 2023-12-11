@@ -1,16 +1,8 @@
 const ground = document.querySelector("#ground");
 const gbtn = document.querySelectorAll(".ground");
-
-let targetground = "#ground1";
-
-gbtn.forEach((element, index) => {
-  element.addEventListener("click", (e) => {
-    targetground = `#ground${index + 1}`;
-
-  });
-});
-
-ground.setAttribute("gltf-model", targetground);
+const ground1 = document.querySelector("#groundMap1");
+const ground2 = document.querySelector("#groundMap2");
+const ground3 = document.querySelector("#groundMap3");
 
 // 클릭시 시작하기
 
@@ -23,6 +15,55 @@ $(".secondpage .button").click(function () {
   $(".startpage").addClass("hidden");
   $(".secondpage").addClass("hidden");
   $(".btn-container").removeClass("hidden");
+});
+
+const Leftbtn = document.querySelector(".text:first-child");
+const Rightbtn = document.querySelector(".text:last-child");
+
+Leftbtn.addEventListener("click", (evt) => {
+  const objectWrapper = document.querySelector(
+    ".object-container:not(.hidden)"
+  );
+  const currentScroll = objectWrapper.scrollLeft;
+  console.log(objectWrapper);
+  // 왼쪽 끝으로 이동
+  console.log(currentScroll);
+
+  objectWrapper.scrollTo({ left: 0, behavior: "smooth" });
+});
+
+Rightbtn.addEventListener("click", (evt) => {
+  const objectWrapper = document.querySelector(
+    ".object-container:not(.hidden)"
+  );
+  const currentScroll = objectWrapper.scrollLeft;
+  const containerWidth = objectWrapper.clientWidth;
+  const containerScrollWidth = objectWrapper.scrollWidth;
+
+  // 오른쪽 끝으로 이동
+  objectWrapper.scrollBy({
+    left: containerScrollWidth - currentScroll - containerWidth,
+    behavior: "smooth",
+  });
+});
+
+gbtn.forEach((element, index) => {
+  element.addEventListener("click", (e) => {
+    console.log(index);
+    if (index == 0) {
+      ground1.setAttribute("visible", true);
+      ground2.setAttribute("visible", false);
+      ground3.setAttribute("visible", false);
+    } else if (index == 1) {
+      ground1.setAttribute("visible", false);
+      ground2.setAttribute("visible", true);
+      ground3.setAttribute("visible", false);
+    } else if (index == 2) {
+      ground1.setAttribute("visible", false);
+      ground2.setAttribute("visible", false);
+      ground3.setAttribute("visible", true);
+    }
+  });
 });
 
 // 여기서의 data는 컴포넌트의 이름 뒤에 붙는 기본적인 것들을 정의한다.
@@ -73,20 +114,26 @@ sbtn.forEach((element, index) => {
     targetModel = `#seaweed${index + 1}`;
   });
 });
-
+let intersect = true;
 //커서 리스너 통해서 박스 생성
 AFRAME.registerComponent("cursor-listener", {
   init: function () {
     this.el.addEventListener("raycaster-intersected", (evt) => {
       this.raycaster = evt.detail.el;
+      // if (
+      //   this.raycaster.components.raycaster.getIntersection(this.el).object.el
+      //     .className == "groundMap"
+      // ) {}
 
+      intersect = true;
+    });
+    if (intersect) {
       this.el.addEventListener("click", (evt) => {
         const clickPoint = document.createElement(`a-entity`);
+        const clickbox = document.createElement(`a-box`);
+
         clickPoint.setAttribute("gltf-model", targetModel);
 
-        // clickPoint.setAttribute("rotation", `0 ${roty} 0`);
-
-        var data = this.data;
         // console.log(data);
         // console.log(evt.detail.intersection);
         evt.detail.intersection.point.x = Math.round(
@@ -105,35 +152,41 @@ AFRAME.registerComponent("cursor-listener", {
         clickPoint.setAttribute("animation-mixer", "clip:default");
         clickPoint.setAttribute("position", evt.detail.intersection.point);
         clickPoint.setAttribute("rotation", "0 0 0");
+        clickbox.setAttribute("rotating-this", "");
+        clickbox.setAttribute("visible", "false");
+        clickPoint.appendChild(clickbox);
         positionMap.appendChild(clickPoint);
-
-        // console.log(this.raycaster);
-
-        // console.log(clickPoint);
       });
-    });
-
+    }
     this.el.addEventListener("raycaster-intersected-cleared", (evt) => {
-      this.raycaster = null;
+      intersect = false;
     });
-  },
-  tick: function () {
-    if (!this.raycaster) {
-      return;
-    }
-    intersection = this.raycaster.components.raycaster.getIntersection(this.el);
-    if (!intersection) {
-      return;
-    }
   },
 });
 
-// AFRAME.registerComponent("rotating-this", {
-//   tick: function () {
-//     this.el.addEventListener("click", function () {
-//       roty = 90 + roty;
-//     });
-//     console.log(this);
-//     this.el.setAttribute("rotation", `0 ${roty} 0`);
-//   },
-// });
+AFRAME.registerComponent("rotating-this", {
+  update: function () {
+    this.el.addEventListener("click", function () {
+      roty = -90 + roty;
+
+      this.parentNode.setAttribute(
+        "animation",
+        `property : rotation; to :0 ${roty} 0; dur: 600`
+      );
+    });
+    roty = 0;
+  },
+});
+
+const reset = document.querySelector(".reset");
+reset.addEventListener("click", function () {
+  positionMap.innerHTML = "";
+});
+
+const next = document.querySelector(".next");
+
+next.addEventListener("click", function () {
+  $(".tabbtn-container").addClass("hidden");
+  $(".object-container").addClass("hidden");
+  $(".fish").removeClass("hidden");
+});

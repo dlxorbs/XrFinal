@@ -11,6 +11,7 @@
 
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
   border-radius: 99px;
   background-color: #dddddd;
 }
@@ -131,12 +132,14 @@ button:focus {
   outline: none;
   border: none;
 }
+
 button:hover {
-  background-color: #6db3e6;
+  background-color: #6db3e6 !important;
   color: #ffffff;
   font-weight: 600;
   transition: 0.5s;
 }
+
 button:active {
   background-color: #1893ec;
   color: #ffffff;
@@ -252,23 +255,60 @@ h2 {
   background-image: url(./Img/ground/ground3.png);
 }
 
+/* 액션버튼 */
+.actionButtonContainer {
+  position: absolute;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  bottom: 50px;
+  right: 80px;
+}
+
+.action {
+  pointer-events: all;
+  width: 170px;
+  font-size: 16px;
+  padding: 0;
+  height: 50px;
+}
+
+.next {
+  background-color: #1893ec !important;
+  color: #ffffff;
+}
+
+.next:active {
+  background-color: #ffffff !important;
+  color: #1893ec;
+}
+
 /* 사이드바 디자인 */
 .btn-container {
-  position: absolute;
+  position: relative;
   z-index: 99;
+  bottom: 0;
   height: 100%;
-  right: 0;
   display: flex;
+  pointer-events: none;
 }
 
 /* 탭바 디자인 */
 
 .tabbtn-container {
   display: flex;
-
+  position: absolute;
   align-items: center;
   flex-direction: column;
-  width: 64px;
+  pointer-events: all;
+  gap: 12px;
+  width: 72px;
+  padding: 12px 0px;
+  left: 80px;
+  transform: translate(0%, -50%);
+  top: 50%;
+  border-radius: 999px;
+  background-color: #ffffff40;
 }
 
 .tab {
@@ -277,17 +317,6 @@ h2 {
   justify-content: center;
   width: 100%;
   align-items: center;
-  background-color: #ffffff40;
-}
-
-.tab:nth-child(1) {
-  border-top-left-radius: 8px;
-  overflow: hidden;
-}
-
-.tab:nth-child(4) {
-  border-bottom-left-radius: 8px;
-  overflow: hidden;
 }
 
 .tab > input {
@@ -295,52 +324,84 @@ h2 {
 }
 
 .tab-text {
-  width: 100%;
-  height: 100%;
+  width: 48px;
+  height: 48px;
+
+  border-radius: 999px;
 
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 12px;
+
+  background-size: cover;
+  background-position: center;
+}
+
+.rock-thumb {
+  background-image: url(./Img/rock/rock1.png);
+}
+.wood-thumb {
+  background-image: url(./Img/wood/wood1.png);
+}
+.seaweed-thumb {
+  background-image: url(./Img/seaweed/seaweed1.png);
+}
+.coral-thumb {
+  background-image: url(./Img/coral/coral1.png);
 }
 
 input[type="radio"]:checked + .tab-text {
   font-weight: 800;
-  background-color: #dddddd30;
+  background-color: #ffffff;
 }
 /* 중간텍스트 */
 .text {
+  display: flex;
   font-size: 20px;
   padding: 24px 12px;
   text-align: center;
   line-height: 160%;
   font-weight: 600;
+  width: calc(68px - 24px);
   background-color: #dddddd30;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.text > span {
+  color: #ffffff;
 }
 
 /* 물체 선택창 디자인 */
 
 .object-wrapper {
+  pointer-events: all;
+  position: absolute;
   background-color: #ffffff40;
-  width: 100%;
+  width: 1256px;
+  display: flex;
+  border-radius: 20px;
+  overflow: hidden;
+  left: 80px;
+  bottom: 50px;
 }
 .object-container {
-  width: calc(100% - 24px);
-  height: calc(100% - 48px);
-  background-color: #dddddd30;
-  display: grid;
-  flex-wrap: wrap;
-  padding: 12px;
-  gap: 12px 12px;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(auto-fill, minmax(110px, auto));
+  width: calc(100% - 136px);
+  height: 188px;
 
-  overflow-y: scroll;
+  display: flex;
+  padding: 12px 12px 0px;
+  gap: 24px;
+  align-items: center;
+
+  overflow-x: scroll;
 }
 
 .object-container > div {
-  width: 110px;
-  height: 110px;
+  width: 160px;
+  min-width: 160px;
+  height: 160px;
   background-color: transparent;
   background-position: center;
   background-size: cover;

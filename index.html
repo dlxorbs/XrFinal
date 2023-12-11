@@ -9,11 +9,15 @@
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <link rel="stylesheet" href="index.css" />
   </head>
 
   <body>
-    <div class="startpage hidden">
+    <div class="startpage">
       <div class="titlecontainer">
         <h1>아쿠아 펫랜드 어항 꾸미기</h1>
         <span>아쿠아펫랜드의 물고기와 상품들을 체험해보세요!</span>
@@ -60,7 +64,7 @@
       </div>
     </div>
 
-    <div class="secondpage">
+    <div class="secondpage hidden">
       <div class="titlecontainer">
         <h2>어항의 바닥을 선택해주세요.</h2>
         <span>어항의 기초가 되는 바닥을 골라주세요.</span>
@@ -86,7 +90,7 @@
             checked
             onchange="getType()"
           />
-          <div class="tab-text">바위</div>
+          <div class="tab-text rock-thumb"></div>
         </label>
         <label class="tab">
           <input
@@ -95,7 +99,7 @@
             value="coral"
             onchange="getType()"
           />
-          <div class="tab-text">산호</div>
+          <div class="tab-text coral-thumb"></div>
         </label>
         <label class="tab">
           <input
@@ -104,7 +108,7 @@
             value="wood"
             onchange="getType()"
           />
-          <div class="tab-text">나무</div>
+          <div class="tab-text wood-thumb"></div>
         </label>
         <label class="tab">
           <input
@@ -113,13 +117,12 @@
             value="seaweed"
             onchange="getType()"
           />
-          <div class="tab-text">해초</div>
+          <div class="tab-text seaweed-thumb"></div>
         </label>
       </div>
       <div class="object-wrapper">
         <div class="text">
-          꾸밀 물체를 선택하고 <br />
-          어항에 놓아주세요
+          <span class="material-symbols-rounded"> arrow_back_ios </span>
         </div>
         <div class="rock object-container">
           <div class="rockbtn" id="rock1btn"></div>
@@ -129,9 +132,7 @@
           <div class="rockbtn" id="rock5btn"></div>
 
           <div class="rockbtn" id="rock6btn"></div>
-          <div class="rockbtn" id="rock7btn"></div>
-          <div class="rockbtn" id="rock8btn"></div>
-          <div class="rockbtn" id="rock9btn"></div>
+  
         </div>
         <div class="coral object-container hidden">
           <div class="coralbtn" id="coral1btn"></div>
@@ -150,7 +151,6 @@
           <div class="woodbtn" id="wood2btn"></div>
           <div class="woodbtn" id="wood3btn"></div>
           <div class="woodbtn" id="wood4btn"></div>
-          <div class="woodbtn" id="wood5btn"></div>
         </div>
         <div class="seaweed object-container hidden">
           <div class="seaweedbtn" id="seaweed1btn"></div>
@@ -161,6 +161,25 @@
           <div class="seaweedbtn" id="seaweed6btn"></div>
           <div class="seaweedbtn" id="seaweed7btn"></div>
         </div>
+
+        <div class="fish object-container hidden">
+          <div class="seaweedbtn" id="seaweed1btn"></div>
+          <div class="seaweedbtn" id="seaweed2btn"></div>
+          <div class="seaweedbtn" id="seaweed3btn"></div>
+          <div class="seaweedbtn" id="seaweed4btn"></div>
+          <div class="seaweedbtn" id="seaweed5btn"></div>
+          <div class="seaweedbtn" id="seaweed6btn"></div>
+          <div class="seaweedbtn" id="seaweed7btn"></div>
+        </div>
+        <div class="text">
+          <span class="material-symbols-rounded"> arrow_forward_ios </span>
+        </div>
+      </div>
+
+      <div class="actionButtonContainer">
+
+        <button class="action reset"> 초기화 </button>
+        <button class="action next"> 다음 </button>
       </div>
     </div>
 
@@ -176,7 +195,7 @@
         <a-asset-item id="rock4" src="./model/rock/rock4.glb"></a-asset-item>
         <a-asset-item id="rock5" src="./model/rock/rock5.glb"></a-asset-item>
         <a-asset-item id="rock6" src="./model/rock/rock6.glb"></a-asset-item>
-        <a-asset-item id="rock7" src="./model/rock/rock7.glb"></a-asset-item>
+    
 
         <a-asset-item id="coral1" src="./model/coral/coral1.glb"></a-asset-item>
         <a-asset-item id="coral2" src="./model/coral/coral2.glb"></a-asset-item>
@@ -197,13 +216,34 @@
         <a-asset-item id="wood3" src="./model/wood/wood3.glb"></a-asset-item>
         <a-asset-item id="wood4" src="./model/wood/wood4.glb"></a-asset-item>
         <!-- 해초 -->
-        <a-asset-item id="rock1" src="./model/rock/rock1.glb"></a-asset-item>
-        <a-asset-item id="rock2" src="./model/rock/rock2.glb"></a-asset-item>
-        <a-asset-item id="rock3" src="./model/rock/rock3.glb"></a-asset-item>
-        <a-asset-item id="rock4" src="./model/rock/rock4.glb"></a-asset-item>
-        <a-asset-item id="rock5" src="./model/rock/rock5.glb"></a-asset-item>
-        <a-asset-item id="rock6" src="./model/rock/rock6.glb"></a-asset-item>
-        <a-asset-item id="rock7" src="./model/rock/rock7.glb"></a-asset-item>
+        <a-asset-item
+          id="seaweed1"
+          src="./model/seaweed/seaweed1.glb"
+        ></a-asset-item>
+        <!-- <a-asset-item
+          id="seaweed2"
+          src="./model/seaweed/seaweed2.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="seaweed3"
+          src="./model/seaweed/seaweed3.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="seaweed4"
+          src="./model/seaweed/seaweed4.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="seaweed5"
+          src="./model/seaweed/seaweed5.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="seaweed6"
+          src="./model/seaweed/seaweed6.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="seaweed7"
+          src="./model/seaweed/seaweed7.glb" -->
+        ></a-asset-item>
         <!-- 유리 -->
         <a-asset-item id="glass1" src="./model/glass.glb"></a-asset-item>
 
@@ -240,11 +280,10 @@
       <a-plane
         id="defaultmap"
         cursor-listener
-        src="#groundTexture"
         width="5"
         height="5"
         rotation="0 0 0"
-        cursor-lister
+        position = "0 0.1 0"
       ></a-plane>
 
       <a-entity id="glass" position="0 0 0" gltf-model="#glass1"></a-entity>
@@ -257,11 +296,34 @@
       ></a-entity>
 
       <a-entity
-        id="ground"
+        class="groundMap"
+        id="groundMap1"
         map-change
         cursor-listener
         position="0 0 0"
         rotation="0 90 0"
+        gltf-model="#ground1"
+        visible="true"
+      ></a-entity>
+      <a-entity
+        class="groundMap"
+        id="groundMap2"
+        map-change
+        cursor-listener
+        position="0 0 0"
+        rotation="0 90 0"
+        gltf-model="#ground2"
+        visible="false"
+      ></a-entity>
+      <a-entity
+        class="groundMap"
+        id="groundMap3"
+        map-change
+        cursor-listener
+        position="0 0 0"
+        rotation="0 90 0"
+        gltf-model="#ground3"
+        visible="false"
       ></a-entity>
       <!-- 이동경로 저장 -->
       <a-entity
@@ -288,8 +350,8 @@
       </a-entity>
     </a-scene>
     <script src="./image.js"></script>
-
-    <script src="sidebar.js"></script>
+    
+    <script src="./sidebar.js"></script>
     <script src="./style.js"></script>
   </body>
 </html>
