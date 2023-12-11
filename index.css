@@ -10,6 +10,7 @@
 /* 스크롤바 디자인 */
 
 ::-webkit-scrollbar {
+  display: none;
   width: 8px;
   height: 8px;
   border-radius: 99px;
@@ -475,7 +476,7 @@ input[type="radio"]:checked + .tab-text {
   height: 188px;
 
   display: flex;
-  padding: 12px 12px 0px;
+  padding: 12px 12px;
   gap: 24px;
   align-items: center;
 

@@ -107,7 +107,7 @@ rockbtn.forEach((element, index) => {
 });
 
 coralbtn.forEach((element, index) => {
-  // console.log(element);
+  // console.log(element);S
   const number = index + 1;
   element.style.backgroundImage = `url(./Img/coral/coral${number}.png)`;
 });

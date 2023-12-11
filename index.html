@@ -176,6 +176,7 @@
       <div class="actionButtonContainer">
         <button class="action reset">초기화</button>
         <button class="action next">다음</button>
+        <button class="action end hidden">끝내기</button>
       </div>
     </div>
     <div class="modalcontainer hidden">
@@ -235,7 +236,7 @@
           id="seaweed1"
           src="./model/seaweed/seaweed1.glb"
         ></a-asset-item>
-        <!-- <a-asset-item
+        <a-asset-item
           id="seaweed2"
           src="./model/seaweed/seaweed2.glb"
         ></a-asset-item>
@@ -257,8 +258,8 @@
         ></a-asset-item>
         <a-asset-item
           id="seaweed7"
-          src="./model/seaweed/seaweed7.glb" 
-        ></a-asset-item>-->
+          src="./model/seaweed/seaweed7.glb"
+        ></a-asset-item>
         <!-- 유리 -->
         <a-asset-item id="glass1" src="./model/glass.glb"></a-asset-item>
 
@@ -303,95 +304,101 @@
         position="0 0.1 0"
       ></a-plane>
 
-      <a-entity id="glass" position="0 0 0" gltf-model="#glass1"></a-entity>
+      <a-entity class="rotate">
+        <a-entity id="glass" position="0 0 0" gltf-model="#glass1"></a-entity>
 
-      <a-entity
-        id="fish01"
-        position="0 0 0"
-        gltf-model="#fish1"
-        animation-mixer="clip:default"
-        visible="false"
-      ></a-entity>
+        <a-entity
+          id="fish01"
+          position="0 0 0"
+          gltf-model="#fish1"
+          animation-mixer="clip:default"
+          visible="false"
+        ></a-entity>
 
-      <a-entity
-        id="fish02"
-        position="0 0 0"
-        gltf-model="#fish2"
-        animation-mixer="clip:default"
-        visible="false"
-      ></a-entity>
+        <a-entity
+          id="fish02"
+          position="0 0 0"
+          gltf-model="#fish2"
+          animation-mixer="clip:default"
+          visible="false"
+        ></a-entity>
 
-      <a-entity
-        id="fish03"
-        position="0 0 0"
-        gltf-model="#fish3"
-        animation-mixer="clip:default"
-        visible="false"
-      ></a-entity>
+        <a-entity
+          id="fish03"
+          position="0 0 0"
+          gltf-model="#fish3"
+          animation-mixer="clip:default"
+          visible="false"
+        ></a-entity>
 
-      <a-entity
-        id="fish04"
-        position="0 0 0"
-        gltf-model="#fish4"
-        animation-mixer="clip:default"
-        visible="false"
-      ></a-entity>
+        <a-entity
+          id="fish04"
+          position="0 0 0"
+          gltf-model="#fish4"
+          animation-mixer="clip:default"
+          visible="false"
+        ></a-entity>
 
-      <a-entity
-        id="fish05"
-        position="0 0 0"
-        gltf-model="#fish5"
-        animation-mixer="clip:default"
-        visible="false"
-      ></a-entity>
+        <a-entity
+          id="fish05"
+          position="0 0 0"
+          gltf-model="#fish5"
+          animation-mixer="clip:default"
+          visible="false"
+        ></a-entity>
 
-      <a-entity
-        class="groundMap"
-        id="groundMap1"
-        map-change
-        cursor-listener
-        position="0 0 0"
-        rotation="0 90 0"
-        gltf-model="#ground1"
-        visible="true"
-      ></a-entity>
-      <a-entity
-        class="groundMap"
-        id="groundMap2"
-        map-change
-        cursor-listener
-        position="0 0 0"
-        rotation="0 90 0"
-        gltf-model="#ground2"
-        visible="false"
-      ></a-entity>
-      <a-entity
-        class="groundMap"
-        id="groundMap3"
-        map-change
-        cursor-listener
-        position="0 0 0"
-        rotation="0 90 0"
-        gltf-model="#ground3"
-        visible="false"
-      ></a-entity>
-      <!-- 이동경로 저장 -->
-      <a-entity
-        id="positionMap"
-        position="0 0.1 0"
-        width="5"
-        height="5"
-      ></a-entity>
-
+        <a-entity
+          class="groundMap"
+          id="groundMap1"
+          map-change
+          cursor-listener
+          position="0 0 0"
+          rotation="0 90 0"
+          gltf-model="#ground1"
+          visible="true"
+        ></a-entity>
+        <a-entity
+          class="groundMap"
+          id="groundMap2"
+          map-change
+          cursor-listener
+          position="0 0 0"
+          rotation="0 90 0"
+          gltf-model="#ground2"
+          visible="false"
+        ></a-entity>
+        <a-entity
+          class="groundMap"
+          id="groundMap3"
+          map-change
+          cursor-listener
+          position="0 0 0"
+          rotation="0 90 0"
+          gltf-model="#ground3"
+          visible="false"
+        ></a-entity>
+        <!-- 이동경로 저장 -->
+        <a-entity
+          id="positionMap"
+          position="0 0.1 0"
+          width="5"
+          height="5"
+        ></a-entity>
+      </a-entity>
       <a-sky id="background" src="#skyTexture"></a-sky>
 
       <a-entity
         id="player"
-        position=" 0 3 -6 "
+        position=" 0 3 -8 "
         rotation="-27.044 180 0"
         wasd-controls="enabled : false;"
       >
-        <a-camera far="1000" fov="70" wasd-controls="enabled : false;">
+        <a-camera
+          far="1000"
+          fov="70"
+          wasd-controls="enabled : false;"
+          look-controls="enabled : false;"
+        >
           <a-cursor
             cursor="rayOrigin: mouse;"
             geometry="primitive: ring; radiusInner: 0; radiusOuter: 0"

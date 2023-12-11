@@ -182,4 +182,29 @@ next.addEventListener("click", function () {
   $(".object-container").addClass("hidden");
   $(".fish").removeClass("hidden");
   $(".reset").addClass("hidden");
+  $(".next").addClass("hidden");
+  $(".end").removeClass("hidden");
+});
+
+const end = document.querySelector(".end");
+
+end.addEventListener("click", function () {
+  $(".object-wrapper").addClass("hidden");
+  const player = document.querySelector("#player");
+  player.setAttribute(
+    "animation",
+    `property : position; to :0 4 -11; dur: 1600; easing :easeInCubic;`
+  );
+
+  setTimeout(() => {
+    let x = 0;
+    const rotate = document.querySelector(".rotate");
+
+    x = x + 360;
+
+    rotate.setAttribute(
+      "animation",
+      `property :rotation; to :0 ${x} 0; dur: 6000;`
+    );
+  }, 1600);
 });
