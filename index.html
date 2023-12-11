@@ -181,8 +181,31 @@
         <button class="action next"> 다음 </button>
       </div>
     </div>
+    <div class="modalcontainer hidden">
+      
+      <div class="modal">
+    
+        <div class="close">X</div>
+        <div class="info_container">
+              <div class="fishthumb"></div>
+              <div class="fishinfo">
+                <div class="textContainer">
+                  <div class="name">asd</div>
+                  <div class="fishdetail">asd</div>
+                </div>
+        
+                <div class="btn">
+                  <button class="add btnsm">추가하기</button>
+                  <button class="buy btnsm">구매하기</button>
+                </div>
+              </div>
+        </div>
 
-    <div class="modal"></div>
+
+      </div>
+      <div class="cover">
+      </div>
+    </div>
 
     <a-scene
       fog="type: #b9e0f3; far:800; density :0.015; color: #b3f2ff"
@@ -262,10 +285,11 @@
           src="./model/ground/ground3.glb"
         ></a-asset-item>
         <!-- 물고기 -->
-        <a-asset-item id="fish" src="./model/fish/fish.glb"></a-asset-item>
+        <a-asset-item id="fish4" src="./model/fish/fish4.glb"></a-asset-item>
         <a-asset-item id="fish1" src="./model/fish/fish1.glb"></a-asset-item>
         <a-asset-item id="fish2" src="./model/fish/fish2.glb"></a-asset-item>
         <a-asset-item id="fish3" src="./model/fish/fish3.glb"></a-asset-item>
+        <a-asset-item id="fish5" src="./model/fish/fish5.glb"></a-asset-item>
 
         <img id="skyTexture" src="./model/underwater.png" />
 
@@ -292,8 +316,7 @@
       <a-entity
         id="fish11"
         position="0 0 0"
-        gltf-model="#fish3"
-        animation-mixer="clip:fish3_default"
+
       ></a-entity>
 
       <a-entity
@@ -351,7 +374,6 @@
       </a-entity>
     </a-scene>
     <script src="./image.js"></script>
-    
     <script src="./sidebar.js"></script>
     <script src="./style.js"></script>
   </body>

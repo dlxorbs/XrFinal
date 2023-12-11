@@ -189,4 +189,6 @@ next.addEventListener("click", function () {
   $(".tabbtn-container").addClass("hidden");
   $(".object-container").addClass("hidden");
   $(".fish").removeClass("hidden");
+  $(".reset").addClass("hidden");
 });
+
