@@ -132,7 +132,6 @@
           <div class="rockbtn" id="rock5btn"></div>
 
           <div class="rockbtn" id="rock6btn"></div>
-  
         </div>
         <div class="coral object-container hidden">
           <div class="coralbtn" id="coral1btn"></div>
@@ -168,7 +167,6 @@
           <div class="fishbtn" id="fish3btn"></div>
           <div class="fishbtn" id="fish4btn"></div>
           <div class="fishbtn" id="fish5btn"></div>
-
         </div>
         <div class="text">
           <span class="material-symbols-rounded"> arrow_forward_ios </span>
@@ -176,35 +174,29 @@
       </div>
 
       <div class="actionButtonContainer">
-
-        <button class="action reset"> 초기화 </button>
-        <button class="action next"> 다음 </button>
+        <button class="action reset">초기화</button>
+        <button class="action next">다음</button>
       </div>
     </div>
     <div class="modalcontainer hidden">
-      
       <div class="modal">
-    
         <div class="close">X</div>
         <div class="info_container">
-              <div class="fishthumb"></div>
-              <div class="fishinfo">
-                <div class="textContainer">
-                  <div class="name">asd</div>
-                  <div class="fishdetail">asd</div>
-                </div>
-        
-                <div class="btn">
-                  <button class="add btnsm">추가하기</button>
-                  <button class="buy btnsm">구매하기</button>
-                </div>
-              </div>
+          <div class="fishthumb"></div>
+          <div class="fishinfo">
+            <div class="textContainer">
+              <div class="name">asd</div>
+              <div class="fishdetail">asd</div>
+            </div>
+
+            <div class="btn">
+              <button class="add btnsm">추가하기</button>
+              <button class="buy btnsm">구매하기</button>
+            </div>
+          </div>
         </div>
-
-
       </div>
-      <div class="cover">
-      </div>
+      <div class="cover"></div>
     </div>
 
     <a-scene
@@ -219,7 +211,6 @@
         <a-asset-item id="rock4" src="./model/rock/rock4.glb"></a-asset-item>
         <a-asset-item id="rock5" src="./model/rock/rock5.glb"></a-asset-item>
         <a-asset-item id="rock6" src="./model/rock/rock6.glb"></a-asset-item>
-    
 
         <a-asset-item id="coral1" src="./model/coral/coral1.glb"></a-asset-item>
         <a-asset-item id="coral2" src="./model/coral/coral2.glb"></a-asset-item>
@@ -266,8 +257,8 @@
         ></a-asset-item>
         <a-asset-item
           id="seaweed7"
-          src="./model/seaweed/seaweed7.glb" -->
-        ></a-asset-item>
+          src="./model/seaweed/seaweed7.glb" 
+        ></a-asset-item>-->
         <!-- 유리 -->
         <a-asset-item id="glass1" src="./model/glass.glb"></a-asset-item>
 
@@ -285,10 +276,11 @@
           src="./model/ground/ground3.glb"
         ></a-asset-item>
         <!-- 물고기 -->
-        <a-asset-item id="fish4" src="./model/fish/fish4.glb"></a-asset-item>
+
         <a-asset-item id="fish1" src="./model/fish/fish1.glb"></a-asset-item>
         <a-asset-item id="fish2" src="./model/fish/fish2.glb"></a-asset-item>
         <a-asset-item id="fish3" src="./model/fish/fish3.glb"></a-asset-item>
+        <a-asset-item id="fish4" src="./model/fish/fish4.glb"></a-asset-item>
         <a-asset-item id="fish5" src="./model/fish/fish5.glb"></a-asset-item>
 
         <img id="skyTexture" src="./model/underwater.png" />
@@ -308,15 +300,49 @@
         width="5"
         height="5"
         rotation="0 0 0"
-        position = "0 0.1 0"
+        position="0 0.1 0"
       ></a-plane>
 
       <a-entity id="glass" position="0 0 0" gltf-model="#glass1"></a-entity>
 
       <a-entity
-        id="fish11"
+        id="fish01"
         position="0 0 0"
+        gltf-model="#fish1"
+        animation-mixer="clip:default"
+        visible="false"
+      ></a-entity>
 
+      <a-entity
+        id="fish02"
+        position="0 0 0"
+        gltf-model="#fish2"
+        animation-mixer="clip:default"
+        visible="false"
+      ></a-entity>
+
+      <a-entity
+        id="fish03"
+        position="0 0 0"
+        gltf-model="#fish3"
+        animation-mixer="clip:default"
+        visible="false"
+      ></a-entity>
+
+      <a-entity
+        id="fish04"
+        position="0 0 0"
+        gltf-model="#fish4"
+        animation-mixer="clip:default"
+        visible="false"
+      ></a-entity>
+
+      <a-entity
+        id="fish05"
+        position="0 0 0"
+        gltf-model="#fish5"
+        animation-mixer="clip:default"
+        visible="false"
       ></a-entity>
 
       <a-entity

@@ -119,12 +119,6 @@ let intersect = true;
 AFRAME.registerComponent("cursor-listener", {
   init: function () {
     this.el.addEventListener("raycaster-intersected", (evt) => {
-      this.raycaster = evt.detail.el;
-      // if (
-      //   this.raycaster.components.raycaster.getIntersection(this.el).object.el
-      //     .className == "groundMap"
-      // ) {}
-
       intersect = true;
     });
     if (intersect) {
@@ -134,8 +128,6 @@ AFRAME.registerComponent("cursor-listener", {
 
         clickPoint.setAttribute("gltf-model", targetModel);
 
-        // console.log(data);
-        // console.log(evt.detail.intersection);
         evt.detail.intersection.point.x = Math.round(
           evt.detail.intersection.point.x
         );
@@ -191,4 +183,3 @@ next.addEventListener("click", function () {
   $(".fish").removeClass("hidden");
   $(".reset").addClass("hidden");
 });
-

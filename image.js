@@ -6,7 +6,11 @@ const fishbtn = document.querySelectorAll(".fishbtn");
 const closebtn = document.querySelector(".close");
 const modal = document.querySelector(".modalcontainer");
 
-const fish11 = document.querySelector("#fish11");
+const fish01 = document.querySelector("#fish01");
+const fish02 = document.querySelector("#fish02");
+const fish03 = document.querySelector("#fish03");
+const fish04 = document.querySelector("#fish04");
+const fish05 = document.querySelector("#fish05");
 
 const fishinfo = [
   {
@@ -53,6 +57,46 @@ function openModal(element, index) {
   fishdetail.innerHTML = fishinfo[index].info;
 
   fishthumb.style.backgroundImage = `url(./Img/fish/${fishinfo[index].thumb}.png)`;
+
+  const add = document.querySelector(".add");
+
+  let a = index;
+
+  add.addEventListener("click", function () {
+    console.log(element, index);
+
+    if (index == 0) {
+      fish01.setAttribute("visible", true);
+      fish02.setAttribute("visible", false);
+      fish03.setAttribute("visible", false);
+      fish04.setAttribute("visible", false);
+      fish05.setAttribute("visible", false);
+    } else if (index == 1) {
+      fish02.setAttribute("visible", true);
+      fish01.setAttribute("visible", false);
+      fish03.setAttribute("visible", false);
+      fish04.setAttribute("visible", false);
+      fish05.setAttribute("visible", false);
+    } else if (index == 2) {
+      fish03.setAttribute("visible", true);
+      fish01.setAttribute("visible", false);
+      fish02.setAttribute("visible", false);
+      fish04.setAttribute("visible", false);
+      fish05.setAttribute("visible", false);
+    } else if (index == 3) {
+      fish04.setAttribute("visible", true);
+      fish01.setAttribute("visible", false);
+      fish02.setAttribute("visible", false);
+      fish03.setAttribute("visible", false);
+      fish05.setAttribute("visible", false);
+    } else if (index == 4) {
+      fish05.setAttribute("visible", true);
+      fish01.setAttribute("visible", false);
+      fish02.setAttribute("visible", false);
+      fish03.setAttribute("visible", false);
+      fish04.setAttribute("visible", false);
+    }
+  });
 }
 
 // 돌 이미지
@@ -84,26 +128,6 @@ fishbtn.forEach((element, index) => {
   // console.log(element);
   const number = index + 1;
   element.style.backgroundImage = `url(./Img/fish/fish${number}.png)`;
-
-  const add = document.querySelector(".add");
-
-  add.addEventListener("click", function () {
-    console.log(index);
-    let fishtarget = "";
-    // console.log(index);        animation-mixer="clip:fish3_default"
-    fish11.setAttribute("gltf-model", fishtarget);
-    if (index == 0) {
-      fishtarget = `./model/fish/${fishinfo[index].thumb}`;
-    } else if (index == 1) {
-      fishtarget = `./model/fish/${fishinfo[index].thumb}`;
-    } else if (index == 2) {
-      fishtarget = `./model/fish/${fishinfo[index].thumb}`;
-    } else if (index == 3) {
-      fishtarget = `./model/fish/${fishinfo[index].thumb}`;
-    } else if (index == 4) {
-      fishtarget = `./model/fish/${fishinfo[index].thumb}`;
-    }
-  });
 
   element.addEventListener("click", (e) => {
     openModal(element, index);
