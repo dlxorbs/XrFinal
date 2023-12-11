@@ -13,78 +13,161 @@
   </head>
 
   <body>
-    <div class="btn-container">
-    
-      <div class="tabbtn-container">
-      <label class="tab" > 
-        <input type="radio" name="selecttype" value="rock" checked onchange="getType()">
-        <div class="tab-text">바위</div>
-      </label>
-      <label class="tab" > 
-        <input type="radio" name="selecttype" value="coral" onchange="getType()">
-        <div class="tab-text">산호</div>
-      </label>
-      <label class="tab" >
-        <input type="radio" name="selecttype" value="wood" onchange="getType()">
-        <div class="tab-text">나무</div>
-      </label>  
-      <label class="tab" >
-        <input type="radio" name="selecttype" value="seaweed" onchange="getType()">
-        <div class="tab-text">해초</div>
-      </label>
+    <div class="startpage hidden">
+      <div class="titlecontainer">
+        <h1>아쿠아 펫랜드 어항 꾸미기</h1>
+        <span>아쿠아펫랜드의 물고기와 상품들을 체험해보세요!</span>
       </div>
-      <div class="object-wrapper">
-             
-      <div class="text"> 꾸밀 물체를 선택하고 <br/> 어항에 놓아주세요 </div>
-      <div class="rock object-container">
+      <div class="startcontainer">
+        <div class="info">
+          <div class="mouse con">
+            <svg
+              id="mouse"
+              width="119"
+              height="179"
+              viewBox="0 0 119 179"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="left"
+                d="M5.00051 68.7426H52.7261L53.8206 3.86886C23.0806 2.06657 3.87078 27.5184 5.00051 68.7426Z"
+                fill="none"
+              />
+              <path
+                class="right"
+                d="M115.424 68.7426H67.6939L66.6037 3.86886C97.3438 2.06657 116.554 27.5184 115.424 68.7426Z"
+                fill="none"
+              />
+              <path
+                d="M59.5001 175.166C21.4541 175.166 -1.24157 166.625 3.93233 84.7434H115.072C120.237 166.62 97.5372 175.166 59.5001 175.166Z"
+                fill="none"
+              />
+              <path
+                d="M3.93233 84.7434C-1.24157 166.625 21.4541 175.166 59.5001 175.166C97.5372 175.166 120.237 166.62 115.072 84.7434M3.93233 84.7434H3.92793H115.072M3.93233 84.7434H115.072M67.6939 68.7426H115.424C116.554 27.5184 97.3438 2.06657 66.6037 3.86886L67.6939 68.7426ZM52.7261 68.7426H5.00051C3.87078 27.5184 23.0806 2.06657 53.8206 3.86886L52.7261 68.7426Z"
+                stroke="white"
+                stroke-width="6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
 
-        <div class="rockbtn" id="rock1btn" ></div>
-        <div class="rockbtn" id="rock2btn" ></div>
-        <div class="rockbtn" id="rock3btn" ></div>
-        <div class="rockbtn" id="rock4btn" ></div>
-        <div class="rockbtn" id="rock5btn" ></div>
-        
-        <div class="rockbtn" id="rock6btn" ></div>
-        <div class="rockbtn" id="rock7btn" ></div>
-        <div class="rockbtn" id="rock8btn" ></div>
-        <div class="rockbtn" id="rock9btn" ></div>
-        <div class="rockbtn" id="rock10btn" ></div>
+            <span class="detail">마우스를 사용하여 어항을 꾸미세요.</span>
+          </div>
+        </div>
 
-      </div>
-      <div class="coral object-container hidden">
-        
-        <div class="coralbtn" id="coral1btn" ></div>
-        <div class="coralbtn" id="coral2btn" ></div>
-        <div class="coralbtn" id="coral3btn" ></div>
-        <div class="coralbtn" id="coral4btn" ></div>
-        <div class="coralbtn" id="coral5btn" ></div>
-        <div class="coralbtn" id="coral6btn" ></div>
-        <div class="coralbtn" id="coral7btn" ></div>
-        <div class="coralbtn" id="coral8btn" ></div>
-        <div class="coralbtn" id="coral9btn" ></div>
-        <div class="coralbtn" id="coral10btn" ></div>
-      </div>
-      <div class="wood object-container hidden">
-        <div class="woodbtn" id="wood1btn" ></div>
-        <div class="woodbtn" id="wood2btn" ></div>
-        <div class="woodbtn" id="wood3btn" ></div>
-        <div class="woodbtn" id="wood4btn" ></div>
-        <div class="woodbtn" id="wood5btn" ></div>
-      </div>
-      <div class="seaweed object-container hidden">
-        <div class="seaweedbtn" id="seaweed1btn" ></div>
-        <div class="seaweedbtn" id="seaweed2btn" ></div>
-        <div class="seaweedbtn" id="seaweed3btn" ></div>
-        <div class="seaweedbtn" id="seaweed4btn" ></div>
-        <div class="seaweedbtn" id="seaweed5btn" ></div>
-        <div class="seaweedbtn" id="seaweed6btn" ></div>
-        <div class="seaweedbtn" id="seaweed7btn" ></div>
-      </div>
-      </div>
+        <button class="button">시작하기</button>
       </div>
     </div>
 
-    <a-scene fog="type: exponential; near:0.5; far:700; color: #99E8FA">
+    <div class="secondpage">
+      <div class="titlecontainer">
+        <h2>어항의 바닥을 선택해주세요.</h2>
+        <span>어항의 기초가 되는 바닥을 골라주세요.</span>
+      </div>
+      <div class="startcontainer">
+        <div class="info">
+          <div class="ground ground1"></div>
+          <div class="ground ground2"></div>
+          <div class="ground ground3"></div>
+        </div>
+
+        <button class="button">시작하기</button>
+      </div>
+    </div>
+
+    <div class="btn-container hidden">
+      <div class="tabbtn-container">
+        <label class="tab">
+          <input
+            type="radio"
+            name="selecttype"
+            value="rock"
+            checked
+            onchange="getType()"
+          />
+          <div class="tab-text">바위</div>
+        </label>
+        <label class="tab">
+          <input
+            type="radio"
+            name="selecttype"
+            value="coral"
+            onchange="getType()"
+          />
+          <div class="tab-text">산호</div>
+        </label>
+        <label class="tab">
+          <input
+            type="radio"
+            name="selecttype"
+            value="wood"
+            onchange="getType()"
+          />
+          <div class="tab-text">나무</div>
+        </label>
+        <label class="tab">
+          <input
+            type="radio"
+            name="selecttype"
+            value="seaweed"
+            onchange="getType()"
+          />
+          <div class="tab-text">해초</div>
+        </label>
+      </div>
+      <div class="object-wrapper">
+        <div class="text">
+          꾸밀 물체를 선택하고 <br />
+          어항에 놓아주세요
+        </div>
+        <div class="rock object-container">
+          <div class="rockbtn" id="rock1btn"></div>
+          <div class="rockbtn" id="rock2btn"></div>
+          <div class="rockbtn" id="rock3btn"></div>
+          <div class="rockbtn" id="rock4btn"></div>
+          <div class="rockbtn" id="rock5btn"></div>
+
+          <div class="rockbtn" id="rock6btn"></div>
+          <div class="rockbtn" id="rock7btn"></div>
+          <div class="rockbtn" id="rock8btn"></div>
+          <div class="rockbtn" id="rock9btn"></div>
+        </div>
+        <div class="coral object-container hidden">
+          <div class="coralbtn" id="coral1btn"></div>
+          <div class="coralbtn" id="coral2btn"></div>
+          <div class="coralbtn" id="coral3btn"></div>
+          <div class="coralbtn" id="coral4btn"></div>
+          <div class="coralbtn" id="coral5btn"></div>
+          <div class="coralbtn" id="coral6btn"></div>
+          <div class="coralbtn" id="coral7btn"></div>
+          <div class="coralbtn" id="coral8btn"></div>
+          <div class="coralbtn" id="coral9btn"></div>
+          <div class="coralbtn" id="coral10btn"></div>
+        </div>
+        <div class="wood object-container hidden">
+          <div class="woodbtn" id="wood1btn"></div>
+          <div class="woodbtn" id="wood2btn"></div>
+          <div class="woodbtn" id="wood3btn"></div>
+          <div class="woodbtn" id="wood4btn"></div>
+          <div class="woodbtn" id="wood5btn"></div>
+        </div>
+        <div class="seaweed object-container hidden">
+          <div class="seaweedbtn" id="seaweed1btn"></div>
+          <div class="seaweedbtn" id="seaweed2btn"></div>
+          <div class="seaweedbtn" id="seaweed3btn"></div>
+          <div class="seaweedbtn" id="seaweed4btn"></div>
+          <div class="seaweedbtn" id="seaweed5btn"></div>
+          <div class="seaweedbtn" id="seaweed6btn"></div>
+          <div class="seaweedbtn" id="seaweed7btn"></div>
+        </div>
+      </div>
+    </div>
+
+    <a-scene
+      fog="type: #b9e0f3; far:800; density :0.015; color: #b3f2ff"
+      xr-mode-ui="enabled: false"
+    >
       <!-- <a-scene> -->
       <a-assets>
         <a-asset-item id="rock1" src="./model/rock/rock1.glb"></a-asset-item>
@@ -95,7 +178,6 @@
         <a-asset-item id="rock6" src="./model/rock/rock6.glb"></a-asset-item>
         <a-asset-item id="rock7" src="./model/rock/rock7.glb"></a-asset-item>
 
-
         <a-asset-item id="coral1" src="./model/coral/coral1.glb"></a-asset-item>
         <a-asset-item id="coral2" src="./model/coral/coral2.glb"></a-asset-item>
         <a-asset-item id="coral3" src="./model/coral/coral3.glb"></a-asset-item>
@@ -105,9 +187,16 @@
         <a-asset-item id="coral7" src="./model/coral/coral7.glb"></a-asset-item>
         <a-asset-item id="coral8" src="./model/coral/coral8.glb"></a-asset-item>
         <a-asset-item id="coral9" src="./model/coral/coral9.glb"></a-asset-item>
-        <a-asset-item id="coral10" src="./model/coral/coral10.glb"></a-asset-item>
-
-
+        <a-asset-item
+          id="coral10"
+          src="./model/coral/coral10.glb"
+        ></a-asset-item>
+        <!-- 나무 -->
+        <a-asset-item id="wood1" src="./model/wood/wood1.glb"></a-asset-item>
+        <a-asset-item id="wood2" src="./model/wood/wood2.glb"></a-asset-item>
+        <a-asset-item id="wood3" src="./model/wood/wood3.glb"></a-asset-item>
+        <a-asset-item id="wood4" src="./model/wood/wood4.glb"></a-asset-item>
+        <!-- 해초 -->
         <a-asset-item id="rock1" src="./model/rock/rock1.glb"></a-asset-item>
         <a-asset-item id="rock2" src="./model/rock/rock2.glb"></a-asset-item>
         <a-asset-item id="rock3" src="./model/rock/rock3.glb"></a-asset-item>
@@ -115,27 +204,29 @@
         <a-asset-item id="rock5" src="./model/rock/rock5.glb"></a-asset-item>
         <a-asset-item id="rock6" src="./model/rock/rock6.glb"></a-asset-item>
         <a-asset-item id="rock7" src="./model/rock/rock7.glb"></a-asset-item>
-
-
-        <a-asset-item id="rock1" src="./model/rock/rock1.glb"></a-asset-item>
-        <a-asset-item id="rock2" src="./model/rock/rock2.glb"></a-asset-item>
-        <a-asset-item id="rock3" src="./model/rock/rock3.glb"></a-asset-item>
-        <a-asset-item id="rock4" src="./model/rock/rock4.glb"></a-asset-item>
-        <a-asset-item id="rock5" src="./model/rock/rock5.glb"></a-asset-item>
-        <a-asset-item id="rock6" src="./model/rock/rock6.glb"></a-asset-item>
-        <a-asset-item id="rock7" src="./model/rock/rock7.glb"></a-asset-item>
-
+        <!-- 유리 -->
         <a-asset-item id="glass1" src="./model/glass.glb"></a-asset-item>
-        <a-asset-item id="ground1" src="./model/ground.glb"></a-asset-item>
 
-        <img
-          id="groundTexture"
-          src="https://cdn.aframe.io/a-painter/images/floor.jpg"
-        />
+        <!-- 땅 -->
+        <a-asset-item
+          id="ground1"
+          src="./model/ground/ground1.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="ground2"
+          src="./model/ground/ground2.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="ground3"
+          src="./model/ground/ground3.glb"
+        ></a-asset-item>
+        <!-- 물고기 -->
+        <a-asset-item id="fish" src="./model/fish/fish.glb"></a-asset-item>
+        <a-asset-item id="fish1" src="./model/fish/fish1.glb"></a-asset-item>
+        <a-asset-item id="fish2" src="./model/fish/fish2.glb"></a-asset-item>
+        <a-asset-item id="fish3" src="./model/fish/fish3.glb"></a-asset-item>
 
         <img id="skyTexture" src="./model/underwater.png" />
-
-  
 
         <a-mixin
           id="voxel1"
@@ -147,21 +238,30 @@
       </a-assets>
 
       <a-plane
-        id="ground"
+        id="defaultmap"
         cursor-listener
         src="#groundTexture"
         width="5"
         height="5"
-        rotation="-90 0 0"
+        rotation="0 0 0"
         cursor-lister
       ></a-plane>
 
       <a-entity id="glass" position="0 0 0" gltf-model="#glass1"></a-entity>
+
+      <a-entity
+        id="fish11"
+        position="0 0 0"
+        gltf-model="#fish3"
+        animation-mixer="clip:fish3_default"
+      ></a-entity>
+
       <a-entity
         id="ground"
+        map-change
         cursor-listener
         position="0 0 0"
-        gltf-model="#ground1"
+        rotation="0 90 0"
       ></a-entity>
       <!-- 이동경로 저장 -->
       <a-entity
@@ -173,10 +273,13 @@
 
       <a-sky id="background" src="#skyTexture"></a-sky>
 
-      <a-entity id="player" position=" 0 2 -4 " rotation="-27.044 180 0">
-        <!-- Camera -->
-        <a-camera>
-          <!-- Uncomment the line below to place blocks on desktop or mobile -->
+      <a-entity
+        id="player"
+        position=" 0 3 -6 "
+        rotation="-27.044 180 0"
+        wasd-controls="enabled : false;"
+      >
+        <a-camera far="1000" fov="70" wasd-controls="enabled : false;">
           <a-cursor
             cursor="rayOrigin: mouse;"
             geometry="primitive: ring; radiusInner: 0; radiusOuter: 0"
@@ -186,9 +289,7 @@
     </a-scene>
     <script src="./image.js"></script>
 
-    <script src="sidebar.js" ></script>
+    <script src="sidebar.js"></script>
     <script src="./style.js"></script>
-
-  
   </body>
 </html>

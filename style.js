@@ -1,4 +1,29 @@
-/* global AFRAME */
+const ground = document.querySelector("#ground");
+const gbtn = document.querySelectorAll(".ground");
+
+let targetground = "#ground1";
+
+gbtn.forEach((element, index) => {
+  element.addEventListener("click", (e) => {
+    targetground = `#ground${index + 1}`;
+
+  });
+});
+
+ground.setAttribute("gltf-model", targetground);
+
+// 클릭시 시작하기
+
+$(".startpage .button").click(function () {
+  $(".startpage").addClass("hidden");
+  $(".secondpage").removeClass("hidden");
+});
+
+$(".secondpage .button").click(function () {
+  $(".startpage").addClass("hidden");
+  $(".secondpage").addClass("hidden");
+  $(".btn-container").removeClass("hidden");
+});
 
 // 여기서의 data는 컴포넌트의 이름 뒤에 붙는 기본적인 것들을 정의한다.
 let positionMap = document.querySelector("#positionMap");
