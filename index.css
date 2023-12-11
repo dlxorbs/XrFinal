@@ -148,13 +148,12 @@ button:active {
 }
 
 .modal {
-  display: none;
   position: absolute;
   flex-direction: column;
 
   width: 80%;
-  height: 80%;
-  background-color: #00000099;
+  height: 30%;
+  background-color: #ffffff;
   border-radius: 48px;
   top: 10%;
   left: 10%;
@@ -162,6 +161,8 @@ button:active {
   align-items: center;
   justify-content: center;
   gap: 20%;
+
+  z-index: 9999;
 }
 
 .stop {
