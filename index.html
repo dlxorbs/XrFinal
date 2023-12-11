@@ -262,6 +262,7 @@
         ></a-asset-item>
         <!-- 유리 -->
         <a-asset-item id="glass1" src="./model/glass.glb"></a-asset-item>
+        <a-asset-item id="glass2" src="./model/glass1.glb"></a-asset-item>
 
         <!-- 땅 -->
         <a-asset-item
@@ -305,8 +306,22 @@
       ></a-plane>
 
       <a-entity class="rotate">
+        <a-ocean
+          depth="5"
+          width="5"
+          position="0 4 0 "
+          density="5"
+          color="#ffffff20"
+          opacity="0.3"
+          visible="false"
+        ></a-ocean>
         <a-entity id="glass" position="0 0 0" gltf-model="#glass1"></a-entity>
-
+        <a-entity
+          id="glass-end"
+          position="0 -8 0"
+          gltf-model="#glass2"
+          visible="false"
+        ></a-entity>
         <a-entity
           id="fish01"
           position="0 0 0"
@@ -353,7 +368,7 @@
           map-change
           cursor-listener
           position="0 0 0"
-          rotation="0 90 0"
+          rotation="0 0 0"
           gltf-model="#ground1"
           visible="true"
         ></a-entity>
@@ -363,7 +378,7 @@
           map-change
           cursor-listener
           position="0 0 0"
-          rotation="0 90 0"
+          rotation="0 0 0"
           gltf-model="#ground2"
           visible="false"
         ></a-entity>
@@ -373,7 +388,7 @@
           map-change
           cursor-listener
           position="0 0 0"
-          rotation="0 90 0"
+          rotation="0 0 0"
           gltf-model="#ground3"
           visible="false"
         ></a-entity>
@@ -389,8 +404,8 @@
 
       <a-entity
         id="player"
-        position=" 0 3 -8 "
-        rotation="-27.044 180 0"
+        position=" 0 6 -8 "
+        rotation="-45 180 0"
         wasd-controls="enabled : false;"
       >
         <a-camera

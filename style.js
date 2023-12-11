@@ -187,13 +187,20 @@ next.addEventListener("click", function () {
 });
 
 const end = document.querySelector(".end");
-
+const player = document.querySelector("#player");
 end.addEventListener("click", function () {
   $(".object-wrapper").addClass("hidden");
-  const player = document.querySelector("#player");
+  const ocean = document.querySelector("a-ocean");
+  const glass = document.querySelector("#glass");
+  const glassend = document.querySelector("#glass-end");
+
+  glass.setAttribute("visible", "flase");
+  glassend.setAttribute("visible", "true");
+  ocean.setAttribute("visible", "true");
+  glassend.setAttribute("position", "0 0 0 ");
   player.setAttribute(
     "animation",
-    `property : position; to :0 4 -11; dur: 1600; easing :easeInCubic;`
+    `property : position; to :0 10 -11; dur: 1600; easing :easeInCubic;`
   );
 
   setTimeout(() => {
@@ -204,7 +211,19 @@ end.addEventListener("click", function () {
 
     rotate.setAttribute(
       "animation",
-      `property :rotation; to :0 ${x} 0; dur: 6000;`
+      `property :rotation; to :0 ${x} 0; dur: 3000;`
     );
   }, 1600);
+
+  setTimeout(() => {
+    player.setAttribute(
+      "animation",
+      `property : position; to :0 3 -8; dur: 1600; easing :easeInCubic;`
+    );
+
+    player.setAttribute(
+      "animation__2",
+      `property : rotation; to :-25 180 0; dur: 1600; easing :easeInCubic;`
+    );
+  }, 4600);
 });
